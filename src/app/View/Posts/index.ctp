@@ -11,3 +11,6 @@ echo $this->Html->link($post['Post']['title'],'/posts/view/'.$post['Post']['id']
 </li>
 <?php endforeach; ?>
 </ul>
+
+<h2>Add Post</h2>
+<?php echo $this->Html->link('Add post', array('controller'=>'posts','action'=>'add'));
