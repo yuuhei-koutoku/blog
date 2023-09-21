@@ -5,7 +5,8 @@
 <li>
 <?php
 // debug($post);
-echo h($post['Post']['title']);
+// echo h($post['Post']['title']);
+echo $this->Html->link($post['Post']['title'],'/posts/view/'.$post['Post']['id']);
 ?>
 </li>
 <?php endforeach; ?>
