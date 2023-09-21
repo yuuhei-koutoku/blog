@@ -13,4 +13,21 @@ class CommentsController extends AppController {
             }
         }
     }
+
+	public function delete($id) {
+        if ($this->request->is('get')) {
+            throw new MethodNotAllowedException();
+        }
+        if ($this->request->is('ajax')) {
+            if ($this->Comment->delete($id)) {
+                $this->autoRender = false;
+                $this->autoLayout = false;
+                $response = array('id' => $id);
+                $this->header('Content-Type: application/json');
+                echo json_encode($response);
+                exit();
+            }
+        }
+        $this->redirect(array('controller'=>'posts', 'action'=>'index'));
+    }
 }
